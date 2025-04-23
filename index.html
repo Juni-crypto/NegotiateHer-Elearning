@@ -471,30 +471,8 @@
                     </div>
                 </div>
                 <div class="signup-form">
-                    <form id="enrollment-form">
-                        <h3>Enroll Today</h3>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="package">Select Package</label>
-                            <select id="package" name="package" required>
-                                <option value="">Choose a package</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="checkbox">
-                                <input type="checkbox" name="terms" required>
-                                <span>I agree to the <a href="#">Terms and Conditions</a></span>
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Secure Your Spot Now</button>
-                    </form>
+                    <h3>Join Waitlist</h3>
+                    <div class="ml-embedded" data-form="wLZxAC"></div>
                 </div>
             </div>
         </div>
@@ -616,24 +594,7 @@
             });
         });
 
-        // Form Validation
-        const enrollmentForm = document.getElementById('enrollment-form');
-        
-        enrollmentForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const package = document.getElementById('package').value;
-            
-            if (name && email && package) {
-                // Here you would normally submit the form data to your backend
-                alert('Thank you for enrolling! We will contact you shortly with next steps.');
-                enrollmentForm.reset();
-            } else {
-                alert('Please fill out all required fields.');
-            }
-        });
+      
 
         // Add animation when elements come into view
         const fadeInElements = document.querySelectorAll('.card, .benefit-item, .module, .pricing-card');
@@ -756,48 +717,7 @@
         }
 
         // Update the enrollment form to reflect the new packages and prices
-        document.addEventListener('DOMContentLoaded', function() {
-            const packageSelect = document.getElementById('package');
-            if (packageSelect) {
-                // Clear existing options
-                packageSelect.innerHTML = '<option value="">Choose a package</option>';
-                
-                // Add new options
-                const options = [
-                    { value: 'basic', text: 'Get Started (149 CHF)' },
-                    { value: 'premium', text: 'Get Going (249 CHF)' },
-                    { value: 'vip', text: 'Go All-In (799 CHF)' }
-                ];
-                
-                options.forEach(option => {
-                    const optElement = document.createElement('option');
-                    optElement.value = option.value;
-                    optElement.textContent = option.text;
-                    packageSelect.appendChild(optElement);
-                });
-            }
-            
-            // Simple animation for spots counter
-            const spotsCounter = document.getElementById('spots-counter');
-            if (spotsCounter) {
-                const startValue = 23;
-                let currentValue = startValue;
-                
-                // Random decrease in spots occasionally to create urgency
-                setInterval(function() {
-                    if (Math.random() > 0.7 && currentValue > 1) {
-                        currentValue--;
-                        spotsCounter.textContent = currentValue;
-                        
-                        // Flash animation when number decreases
-                        spotsCounter.classList.add('flash');
-                        setTimeout(function() {
-                            spotsCounter.classList.remove('flash');
-                        }, 500);
-                    }
-                }, 10000);
-            }
-        });
+      
     </script>
 </body>
 </html>
