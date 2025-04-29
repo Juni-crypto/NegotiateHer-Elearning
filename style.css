@@ -1151,6 +1151,227 @@ ul {
     width: auto;
 }
 
+/* Enhanced Signup Section Styles */
+.section-badge {
+    display: inline-block;
+    background-color: var(--light-accent);
+    border-radius: 30px;
+    padding: 8px 16px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.section-badge i {
+    margin-right: 6px;
+    color: var(--primary-color);
+}
+
+.signup-subtitle {
+    font-size: 20px;
+    color: var(--dark-gray);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.benefits-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.benefit-highlight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--white);
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.benefit-highlight:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.benefit-highlight i {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+.testimonial-quote {
+    position: relative;
+    padding: 10px 0;
+}
+
+.testimonial-quote i.fa-quote-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
+.testimonial-quote i.fa-quote-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
+.testimonial-author-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.testimonial-author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-author-img i {
+    font-size: 30px;
+    color: var(--primary-color);
+}
+
+.testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+    color: var(--dark-gray);
+}
+
+.testimonial-position {
+    font-size: 14px;
+    color: var(--accent-color);
+    margin: 0;
+}
+
+.form-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    border: 1px solid var(--medium-gray);
+}
+
+.form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.offer-highlight {
+    font-size: 18px;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--dark-gray);
+}
+
+.strike {
+    text-decoration: line-through;
+    color: var(--dark-gray);
+    opacity: 0.7;
+    margin-right: 5px;
+}
+
+.highlight-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.final-features {
+    margin: 25px 0;
+    padding: 0;
+}
+
+.final-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 10px;
+}
+
+.final-features li i {
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    margin: 10px 0;
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--dark-gray);
+    opacity: 0.8;
+}
+
+.secure-badge i {
+    color: var(--success-color);
+}
+
+/* Responsive styles for signup section */
+@media (max-width: 992px) {
+    .signup-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .form-card {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .offer-highlight {
+        font-size: 16px;
+    }
+    
+    .highlight-price {
+        font-size: 22px;
+    }
+    
+    .form-card {
+        padding: 20px;
+    }
+    
+    .signup-subtitle {
+        font-size: 18px;
+    }
+}
+
 /* Footer */
 .footer {
     background-color: var(--dark-gray);
