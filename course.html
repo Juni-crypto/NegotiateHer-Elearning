@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course — NegotiateHer Strategic Career Negotiations</title>
+    <meta name="description" content="The full NegotiateHer Strategic Career Negotiations course — free and self-paced.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://negotiateher.com/assets/img/newFav.png" type="image/png">
+    <meta property="og:title" content="NegotiateHer — Free Course">
+    <meta property="og:description" content="Strategic Career Negotiations. Free, self-paced.">
+    <meta property="og:image" content="https://negotiateher.com/assets/img/gita_2.jpg">
+    <meta property="og:url" content="https://elearning.negotiateher.com/course.html">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="course-body">
+
+    <header class="course-header">
+        <div class="course-header-inner">
+            <a class="course-logo" href="./index.html">
+                <img src="https://negotiateher.com/assets/img/templogo_01.png" alt="NegotiateHer">
+            </a>
+
+            <div class="course-progress-meter" title="Your overall progress">
+                <div class="meter-track"><div class="meter-fill" id="overall-fill"></div></div>
+                <span class="meter-label" id="overall-label">0%</span>
+            </div>
+
+            <button class="lessons-toggle" id="lessons-toggle" aria-expanded="false" aria-controls="course-sidebar">
+                <i class="fas fa-list-ul"></i> <span>Lessons</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="course-layout">
+
+        <!-- ---------------- Sidebar: module + lesson list ---------------- -->
+        <aside class="course-sidebar" id="course-sidebar">
+            <div class="sidebar-head">
+                <h1 id="course-title">Strategic Career Negotiations</h1>
+                <p id="course-subtitle"></p>
+            </div>
+            <nav id="lesson-nav" class="lesson-nav" aria-label="Course lessons"></nav>
+            <div class="sidebar-foot">
+                <a class="sidebar-cert-link" href="./quiz.html">
+                    <i class="fas fa-award"></i> Final assessment &amp; certificate
+                </a>
+                <button id="reset-progress" class="link-button" type="button">
+                    <i class="fas fa-rotate-left"></i> Reset my progress
+                </button>
+                <p class="sidebar-note">
+                    Your progress is saved in this browser only — no account needed.
+                </p>
+            </div>
+        </aside>
+
+        <!-- ---------------- Main: player + lesson meta ---------------- -->
+        <section class="course-main">
+
+            <div class="player-shell">
+                <div class="player-frame">
+                    <div id="player"></div>
+
+                    <!-- Shown when a lesson has no youtubeId yet -->
+                    <div class="player-placeholder" id="player-placeholder" hidden>
+                        <i class="fas fa-clapperboard"></i>
+                        <h3>Coming soon</h3>
+                        <p>This lesson is being uploaded. Check back shortly.</p>
+                    </div>
+
+                    <!-- Covers YouTube's end-screen grid when a lesson finishes -->
+                    <div class="player-endcard" id="player-endcard" hidden>
+                        <i class="fas fa-circle-check"></i>
+                        <h3>Lesson complete</h3>
+                        <p id="endcard-next-title"></p>
+                        <div class="endcard-actions">
+                            <button class="btn btn-primary" id="endcard-next" type="button">
+                                Next lesson <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="btn btn-outline" id="endcard-replay" type="button">
+                                <i class="fas fa-rotate-left"></i> Replay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lesson-meta">
+                <p class="lesson-eyebrow" id="lesson-eyebrow"></p>
+                <h2 id="lesson-title">Loading…</h2>
+                <p class="lesson-module-desc" id="lesson-module-desc"></p>
+
+                <div class="lesson-controls">
+                    <button class="btn btn-outline" id="prev-lesson" type="button">
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="btn btn-outline" id="toggle-complete" type="button">
+                        <i class="far fa-circle"></i> <span>Mark complete</span>
+                    </button>
+                    <button class="btn btn-primary" id="next-lesson" type="button">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="course-done" id="course-done" hidden>
+                <i class="fas fa-award"></i>
+                <h3>You've finished the course.</h3>
+                <p>
+                    Every lesson complete. Take the short final assessment to earn your
+                    certificate &mdash; or if this helped, the best thank-you is passing it
+                    to someone who needs it.
+                </p>
+                <div class="course-done-actions">
+                    <a class="btn btn-primary" href="./quiz.html">
+                        <i class="fas fa-award"></i> Take the assessment
+                    </a>
+                    <a class="btn btn-outline" href="https://negotiateher.com/" target="_blank" rel="noopener">
+                        Explore NegotiateHer
+                    </a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+
+    <script src="course-data.js"></script>
+    <script src="course.js"></script>
+</body>
+</html>
