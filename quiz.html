@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Assessment — NegotiateHer</title>
+    <meta name="description" content="Complete the final assessment and download your NegotiateHer certificate.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="course.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://negotiateher.com/assets/img/newFav.png" type="image/png">
+</head>
+<body class="course-body">
+
+    <header class="course-header">
+        <div class="course-header-inner">
+            <a class="course-logo" href="./course.html">
+                <img src="https://negotiateher.com/assets/img/templogo_01.png" alt="NegotiateHer">
+            </a>
+            <a class="back-to-course" href="./course.html">
+                <i class="fas fa-arrow-left"></i> <span>Back to course</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="quiz-wrap">
+
+        <!-- ============ Stage 1: intro / gate ============ -->
+        <section class="quiz-stage" id="stage-intro">
+            <div class="quiz-card">
+                <div class="quiz-icon"><i class="fas fa-award"></i></div>
+                <h1>Final Assessment</h1>
+                <p class="quiz-lede">
+                    Answer <strong id="intro-draw">8</strong> questions drawn from across the course.
+                    Score <strong id="intro-pass">75%</strong> or higher and you'll get your
+                    personalised certificate to download.
+                </p>
+
+                <ul class="quiz-facts">
+                    <li><i class="fas fa-shuffle"></i> Questions and answers are reshuffled every attempt</li>
+                    <li><i class="fas fa-rotate-right"></i> Unlimited retries — a new set each time</li>
+                    <li><i class="fas fa-clock"></i> No time limit</li>
+                </ul>
+
+                <div class="quiz-gate" id="gate-warning" hidden>
+                    <i class="fas fa-circle-info"></i>
+                    <div>
+                        <strong>You haven't finished the course yet.</strong>
+                        <span id="gate-detail"></span>
+                        You're welcome to try the assessment anyway.
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-large" id="start-quiz" type="button">
+                    Start the assessment <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ============ Stage 2: questions ============ -->
+        <section class="quiz-stage" id="stage-quiz" hidden>
+            <div class="quiz-card">
+                <div class="quiz-progress">
+                    <div class="quiz-progress-text">
+                        Question <span id="q-index">1</span> of <span id="q-total">8</span>
+                        <span class="quiz-module-tag" id="q-module"></span>
+                    </div>
+                    <div class="quiz-progress-track">
+                        <div class="quiz-progress-fill" id="q-fill"></div>
+                    </div>
+                </div>
+
+                <h2 class="quiz-question" id="q-text"></h2>
+                <div class="quiz-options" id="q-options" role="radiogroup"></div>
+
+                <div class="quiz-feedback" id="q-feedback" hidden>
+                    <div class="feedback-head" id="feedback-head"></div>
+                    <p id="feedback-why"></p>
+                </div>
+
+                <div class="quiz-actions">
+                    <button class="btn btn-primary" id="q-next" type="button" disabled>
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Stage 3: result ============ -->
+        <section class="quiz-stage" id="stage-result" hidden>
+            <div class="quiz-card">
+                <div class="quiz-icon" id="result-icon"></div>
+                <h2 id="result-title"></h2>
+                <p class="quiz-score" id="result-score"></p>
+                <p class="quiz-lede" id="result-message"></p>
+
+                <div class="quiz-review" id="result-review"></div>
+
+                <!-- Passed: collect the name for the certificate -->
+                <div class="cert-form" id="cert-form" hidden>
+                    <label for="cert-name">Name as it should appear on your certificate</label>
+                    <input type="text" id="cert-name" maxlength="60" autocomplete="name"
+                           placeholder="e.g. Gitanjali Ponnappa">
+                    <p class="cert-hint" id="cert-hint"></p>
+                    <button class="btn btn-primary btn-large" id="make-cert" type="button" disabled>
+                        <i class="fas fa-certificate"></i> Generate my certificate
+                    </button>
+                </div>
+
+                <div class="quiz-actions" id="retry-actions" hidden>
+                    <button class="btn btn-primary btn-large" id="retry-quiz" type="button">
+                        <i class="fas fa-rotate-right"></i> Try again with new questions
+                    </button>
+                    <a class="btn btn-outline" href="./course.html">Back to the lessons</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ Stage 4: certificate ============ -->
+        <section class="quiz-stage" id="stage-cert" hidden>
+            <div class="quiz-card cert-card">
+                <h2>Congratulations</h2>
+                <p class="quiz-lede">Your certificate is ready. Download it, or share it on LinkedIn.</p>
+
+                <div class="cert-preview">
+                    <canvas id="cert-canvas"></canvas>
+                </div>
+
+                <div class="quiz-actions">
+                    <button class="btn btn-primary btn-large" id="download-cert" type="button">
+                        <i class="fas fa-download"></i> Download certificate
+                    </button>
+                    <button class="btn btn-outline" id="rename-cert" type="button">
+                        <i class="fas fa-pen"></i> Change the name
+                    </button>
+                    <a class="btn btn-outline" href="./course.html">Back to the course</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!--
+      Dev-only shortcut. quiz.js reveals this ONLY when the page is served from
+      localhost / 127.0.0.1 / file://, so it can never appear on the live site.
+      Safe to leave in; delete this block and the isLocal() call if you'd rather.
+    -->
+    <div class="dev-bar" id="dev-bar" hidden>
+        <span class="dev-tag">DEV</span>
+        <button type="button" id="dev-skip">Skip to certificate</button>
+        <button type="button" id="dev-fail">Simulate a fail</button>
+    </div>
+
+    <!-- course-data.js is only read to tell the learner how far through they are -->
+    <script src="course-data.js"></script>
+    <script src="cert-logo.js"></script>
+    <script src="quiz-data.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>
