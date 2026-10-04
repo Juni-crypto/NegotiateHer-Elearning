@@ -6,6 +6,7 @@
     <title>Course — NegotiateHer Strategic Career Negotiations</title>
     <meta name="description" content="The full NegotiateHer Strategic Career Negotiations course — free and self-paced.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://negotiateher.com/assets/css/nh-forms.css">
     <link rel="stylesheet" href="course.css">
     <link rel="stylesheet" href="gate.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,18 +19,6 @@
     <meta property="og:image" content="https://negotiateher.com/assets/img/gita_2.jpg">
     <meta property="og:url" content="https://elearning.negotiateher.com/course.html">
     <meta name="twitter:card" content="summary_large_image">
-	<!-- MailerLite Universal -->
-	<script>
-		(function (w, d, e, u, f, l, n) {
-			w[f] = w[f] || function () {
-				(w[f].q = w[f].q || [])
-					.push(arguments);
-			}, l = d.createElement(e), l.async = 1, l.src = u,
-				n = d.getElementsByTagName(e)[0], n.parentNode.insertBefore(l, n);
-		})
-			(window, document, 'script', 'https://assets.mailerlite.com/js/universal.js', 'ml');
-		ml('account', '923663');
-	</script>
 </head>
 <body class="course-body">
 
@@ -153,20 +142,28 @@
                     <a href="https://open.spotify.com/show/7ocWFIPnrOI5DT2u6YZ54P" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
                     <a href="https://podcasts.apple.com/us/podcast/negotiateher/id1772472043" target="_blank" aria-label="Apple Podcasts"><i class="fas fa-podcast"></i></a>
                     <a href="https://www.youtube.com/@NegotiateHer/videos" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://elearning.negotiateher.com" aria-label="E-Learning"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://elearning.negotiateher.com" aria-label="Free online course"><i class="fas fa-graduation-cap"></i></a>
                 </div>
 
                 <div class="footer-newsletter">
                     <h4>Subscribe to our Newsletter</h4>
                     <p>Get negotiation tips, career insights, and exclusive resources delivered to your inbox.</p>
                     <div style="width: 100%; margin-bottom: 12px;">
-                        <div class="ml-embedded" data-form="8X3T70"></div>
+                        <form class="nh-form" data-nh-form="newsletter">
+                            <div class="nh-form-fields">
+                                <input class="nh-input" type="text" name="name" placeholder="First name" aria-label="First name" autocomplete="given-name" required>
+                                <input class="nh-input" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+                                <button class="nh-btn" type="submit">Subscribe</button>
+                            </div>
+                            <input class="nh-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <p class="nh-form-status" role="status" aria-live="polite"></p>
+                        </form>
                     </div>
                 </div>
 
                 <div class="footer-bottom" style="justify-content: center;">
                     <p>Proudly led by women for women</p>
-                    <p><a href="https://drive.google.com/file/d/1rdvv-JzyYbaJa-T8OY9Pi7G39mo6R_fk/view?usp=sharing" target="_blank">Terms &amp; Conditions</a></p>
+                    <p><a href="https://negotiateher.com/terms.html">Terms &amp; Conditions</a></p>
                     <p>&copy; <span id="copyright-year">2026</span> NegotiateHer. All rights reserved.</p>
                 </div>
             </div>
@@ -175,6 +172,9 @@
 
     <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
 
+    <!-- Sign-up forms post to NegotiateHer's private Google Form (same as negotiateher.com) -->
+    <script src="https://negotiateher.com/assets/scripts/nh-forms-config.js"></script>
+    <script src="https://negotiateher.com/assets/scripts/nh-forms.js"></script>
     <script src="course-data.js"></script>
     <script src="course.js"></script>
     <script src="gate.js"></script>

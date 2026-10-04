@@ -1,9 +1,12 @@
 /*
  * NegotiateHer — email gate
  * ---------------------------------------------------------------------------
- * Collects a name and email before the course opens, and posts them to the
- * existing MailerLite list. Once submitted, the visitor is remembered in
- * localStorage and never sees the gate again on that browser.
+ * Collects a name and email before the course opens, and posts them to
+ * NegotiateHer's private Google Form (the same one every form on
+ * negotiateher.com uses — see nh-forms-config.js there). The Apps Script
+ * behind it adds them to the newsletter and sends the course welcome email.
+ * Once submitted, the visitor is remembered in localStorage and never sees
+ * the gate again on that browser.
  *
  * The captured name is reused later to prefill the certificate, so the learner
  * types it once rather than twice.
@@ -14,17 +17,6 @@
     var ACCESS_KEY = 'nh_access_v1';
     var CERT_KEY = 'nh_cert_name_v1';   // read by quiz.js when building the certificate
 
-    /*
-     * MailerLite account and form already embedded on the landing page footer.
-     * 8X3T70 is the general newsletter form. If a dedicated "free course"
-     * form is created in MailerLite, change FORM_ID only — nothing else here
-     * depends on it. Using a dedicated form is worth doing: it keeps course
-     * signups segmentable from plain newsletter signups.
-     */
-    var ACCOUNT_ID = '923663';
-    var FORM_ID = '8X3T70';
-    var ENDPOINT = 'https://assets.mailerlite.com/jsonp/' + ACCOUNT_ID +
-                   '/forms/' + FORM_ID + '/subscribe';
 
     function hasAccess() {
         try {
@@ -86,24 +78,29 @@
             '    </button>',
             '  </form>',
             '  <p class="gate-fineprint">We only use your address for the course and',
-            '     the newsletter. We never sell or share it.</p>',
+            '     the newsletter. We never sell or share it.',
+            '     <a href="https://negotiateher.com/terms.html#privacy" target="_blank" rel="noopener">Privacy</a></p>',
             '</div>'
         ].join('\n');
         return el;
     }
 
-    function submitToMailerLite(name, email) {
+    /*
+     * Posts the sign-up as type "course". window.NH_FORMS (the Form's address
+     * and question ids) is loaded from negotiateher.com before this file.
+     * Google Forms sends no CORS headers, so the reply is opaque by design.
+     */
+    function subscribe(name, email) {
+        var cfg = window.NH_FORMS || {};
+        if (!cfg.action || !cfg.fields || !cfg.fields.email) {
+            return Promise.reject(new Error('sign-up form is not configured'));
+        }
+        var values = { type: 'course', name: name, email: email, page: location.hostname + location.pathname };
         var body = new URLSearchParams();
-        body.append('fields[email]', email);
-        if (name) body.append('fields[name]', name);
-        body.append('ml-submit', '1');
-        body.append('anticsrf', 'true');
-
-        return fetch(ENDPOINT, {
-            method: 'POST',
-            body: body,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        Object.keys(values).forEach(function (key) {
+            if (cfg.fields[key] && values[key]) body.append(cfg.fields[key], values[key]);
         });
+        return fetch(cfg.action, { method: 'POST', mode: 'no-cors', body: body });
     }
 
     function init() {
@@ -146,7 +143,7 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Just a moment…';
 
             /*
-             * Let the learner in regardless of what MailerLite returns.
+             * Let the learner in regardless of what the sign-up returns.
              * This is free content: a subscription API hiccup must never be
              * the reason someone can't watch it. The address is stored locally
              * either way, so a failed send is recoverable.
@@ -157,7 +154,7 @@
                 overlay.remove();
             }
 
-            submitToMailerLite(name, email)
+            subscribe(name, email)
                 .then(unlock)
                 .catch(function (err) {
                     if (window.console) console.warn('[gate] subscribe failed:', err);

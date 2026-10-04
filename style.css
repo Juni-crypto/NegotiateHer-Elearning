@@ -1885,3 +1885,101 @@ ul {
         padding: 20px;
     }
 }
+
+/* --------------------------------------------------------------------------
+   Navigation is available from the top of the page (it used to appear only
+   after scrolling, so phones had no menu at all), with links back to the
+   main site in the phone menu.
+   -------------------------------------------------------------------------- */
+.header:not(.sticky) .nav-menu,
+.header:not(.sticky) .cta-button,
+.header:not(.sticky) .hamburger {
+    opacity: 1;
+    visibility: visible;
+}
+
+.header:not(.sticky) .bar {
+    background-color: var(--white);
+}
+
+.header:not(.sticky) .cta-button .btn {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+@media (min-width: 769px) {
+    .header:not(.sticky) .nav-menu li a {
+        color: var(--white);
+    }
+
+    .header:not(.sticky) .nav-menu li a::after {
+        background-color: var(--white);
+    }
+
+    .nav-menu .nav-site {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        top: 80px;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+    }
+
+    .header.sticky .nav-menu {
+        top: 70px;
+    }
+
+    .header:not(.sticky) .nav-menu li a {
+        color: var(--text-color);
+    }
+
+    .nav-menu .nav-site-first {
+        margin-top: 18px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-menu .nav-site a {
+        font-size: 0.95rem;
+        color: var(--primary-color) !important;
+    }
+}
+
+/* Footer: readable Terms link and the shared sign-up form on the dark footer */
+.footer-bottom a {
+    color: #D7C4FF;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-bottom a:hover {
+    color: var(--white);
+}
+
+.footer .nh-form {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.footer .nh-form-status {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.footer .nh-form-status.is-error {
+    color: #FFB4AB;
+}
+
+.footer .nh-form-status a {
+    color: #D7C4FF;
+}
+
+.footer .nh-form.is-done .nh-form-status {
+    color: #1A1740;
+}
+
+.footer .nh-form.is-done .nh-form-status a {
+    color: #703ACF;
+}
